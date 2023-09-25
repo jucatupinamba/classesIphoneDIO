@@ -1,17 +1,90 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import apps.AparelhoTelefonico;
+import apps.NavegadorDaInternet;
+import apps.ReprodutorMusical;
+
+import java.util.Scanner;
+
 public class IphoneApp {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        AparelhoTelefonico aparelhoTelefonico = new AparelhoTelefonico();
+        NavegadorDaInternet navegadorDaInternet = new NavegadorDaInternet();
+        ReprodutorMusical reprodutorMusical = new ReprodutorMusical();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Scanner scan = new Scanner(System.in);
+        int numero;
+
+        System.out.println("==== Iphone Juca - Simples como Java =====");
+        System.out.println("Digite os seguintes números para ativar os aplicativos: ");
+        System.out.println("1 - Aparelho Telefônico, 2 - Navegador da Internet, 3 - Reprodutor Musical");
+        int opcao = scan.nextInt();
+
+        while(opcao != 0){
+            if(opcao == 1){
+                System.out.println("Para usar o aparelho telefônico utilize os seguintes números");
+                System.out.println("Digite 1 - Ligar, 2 - Atender, 3 - Desligar, 0 - Sair desse App");
+                numero = scan.nextInt();
+                switch (numero){
+                    case 1:
+                        aparelhoTelefonico.ligar();
+                        break;
+
+                    case 2:
+                        aparelhoTelefonico.atender();
+                        break;
+
+                    case 3:
+                        aparelhoTelefonico.desligar();
+
+                    case 0:
+                        opcao = 0;
+                        break;
+                }
+        }
+
+            if(opcao == 2){
+                System.out.println("Para usar o navegador da internet utilize os seguintes números");
+                System.out.println("Digite 1 - Exibir Pagina, 2 - Atualizar Pagina, " +
+                        "3 - Add Nova Aba, 0 - Sair desse App");
+                numero = scan.nextInt();
+                switch (numero){
+                    case 1:
+                        navegadorDaInternet.exibirPagina();
+                        break;
+
+                    case 2:
+                        navegadorDaInternet.atualizarPagina();
+                        break;
+
+                    case 3:
+                        navegadorDaInternet.addNovaAba();
+                        break;
+
+                    case 0:
+                        opcao = 0;
+                        break;
+                }
+            }
+
+
+            if(opcao == 3){
+                System.out.println("Para usar o reprodutor musical utilize os seguintes números");
+                System.out.println("Digite 1 - Tocar Muscia, 2 - Pausar Musica, 0 - Sair desse App");
+                numero = scan.nextInt();
+                switch (numero){
+                    case 1:
+                        reprodutorMusical.tocarMusica();
+                        break;
+
+                    case 2:
+                        reprodutorMusical.pausarMusica();
+                        break;
+
+                    case 0:
+                        opcao = 0;
+                        break;
+                }
+            }
         }
     }
 }
